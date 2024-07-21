@@ -1,6 +1,7 @@
 import mongoose, { Schema, Document, Model } from "mongoose";
 
 export interface ITestCase {
+  title: string;
   precondition: string;
   steps: string;
   expectedResult: string;
@@ -13,6 +14,7 @@ export interface ITestCaseDocument extends ITestCase, Document {}
 export interface ITestCaseModel extends Model<ITestCaseDocument> {}
 
 const TestCaseSchema: Schema = new Schema({
+  title: { type: String, required: true },
   precondition: { type: String, requred: true },
   steps: { type: String, required: true },
   expectedResult: { type: String, requred: true },
